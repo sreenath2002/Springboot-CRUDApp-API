@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="message alert alert-danger" th:if="${param.error}">
+        Invalid Username or Password
+    </div>
+
+    <div class="message alert alert-success" th:if="${param.logout}">
+        Logout Successfully
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">Login Page</h2>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label for="username">Email:</label>
+                    <input type="email" id="username" name="username" class="form-control" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <a th:href="@{/registration}"> New User?Register Here</a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Include Bootstrap JS and Popper.js (required for Bootstrap's JavaScript) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
